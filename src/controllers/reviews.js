@@ -1,11 +1,11 @@
-const model = require('../models')
+const model = require('../models/snacks')
 
 const read = (req, res, next) => {
   model.get(req.params.id)
     .then(data => {
       if (data) return res.status(200).json(data)
       else throw next()
-  }).catch(next)
+    }).catch(next)
 }
 
 const readAll = (req, res, next) => {
