@@ -7,13 +7,11 @@ app.use(express.json())
 app.use(cors())
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
-// Snacks and Reviews Routes
 app.use('/snacks', require('./routes/snacks'))
 app.use('/snacks/:id', require('./routes/reviews'))
+app.use('/account/', require('./routes/auth'))
+app.use('/', require('./routes/users'))
 
-// User Auth
-app.use('/auth', require('./routes/auth'))
-// app.use('/users', require('./routes/users'))
 
 app.use((req, res, next) => next({ status: 404, message: { error: 'not found' } }))
 app.use((err, req, res, next) => {

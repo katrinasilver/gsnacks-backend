@@ -1,40 +1,39 @@
-const model = require('../models/snacks')
+const model = require('../models/reviews')
 
-const read = (req, res, next) => {
-  model.get(req.params.id)
+const readOne = (req, res, next) => {
+  model.getOne(req.params.id)
     .then(data => {
-      if (data) return res.status(200).json(data)
+      if (data) return res.status(200).send(data)
       else throw next()
     }).catch(next)
 }
 
 const readAll = (req, res, next) => {
-  const limit = req.query.limit
-  model.getAll(limit)
+    model.getAll(req.params.id)
     .then(data => {
-      if (data) return res.status(200).json(data)
+      if (data) return res.status(200).send(data)
       else throw next()
     }).catch(next)
 }
 
 const create = (req, res, next) => {
-  if (!req.body.title || !req.body.url || !req.body.rating || !req.body.review)
+  if (!req.body.title || !req.body.rating || !req.body.comment)
     return next({ status: 400, message: `new entries must have all fields` })
 
-  model.create(req.body.title, req.body.url, req.body.rating, req.body.review)
-    .then(data => res.status(201).json(data)).catch(next)
+  model.create(req.body.title, req.body.rating, req.body.comment, req.params.userid, req.params.id)
+    .then(data => res.status(201).send(data)).catch(next)
 }
 
 const edit = (req, res, next) => {
   if (!req.body) return next({ status: 400, message: `edit failed. request is empty` })
 
-  model.edit(req.params.id, req.body.title, req.body.url, req.body.rating, req.body.review)
-    .then(data => res.status(200).json(data)).catch(next)
+  model.edit(req.params.id, req.body.title, req.body.rating, req.body.comment, req.params.userid, req.params.rid)
+    .then(data => res.status(200).send( data )).catch(next)
 }
 
 const remove = (req, res, next) => {
-  model.remove(req.params.id)
-    .then(data => res.status(200).json(data)).catch(next)
+  model.remove(req.params.rid)
+    .then(data => res.status(200).send(data)).catch(next)
 }
 
-module.exports = { read, readAll, create, edit, remove }
+module.exports = { readOne, readAll, create, edit, remove }

@@ -1,23 +1,22 @@
 const db = require('../../db')
 
-const get = (id) => db('snacks').where({ id: id }).first()
+const getAll = (id) => db('reviews').where({snack_id : id})
 
-const getAll = (limit) =>
-  !limit || limit === '0' ? db('snacks') : db('snacks').limit(limit)
+const getOne = (id) => db('reviews').where({ snack_id: id }).first()
 
-const create = (title, url, rating, review) => {
+const create = (title, rating, comment, account_id, snack_id) => {
   return (
-    db('snacks')
-      .insert({ title, url, rating, review })
+    db('reviews')
+      .insert({ title, rating, comment, account_id, snack_id })
       .returning('*')
       .then(([data]) => data)
   )
 }
 
-const edit = (id, title, url, rating, review) => {
+const edit = (title, rating, comment, account_id, snack_id) => {
   return (
-    db('snacks')
-      .update({ title, url, rating, review })
+    db('reviews')
+      .update({ title, rating, comment, account_id, snack_id })
       .where({ id: id })
       .returning('*')
       .then(([data]) => data)
@@ -26,7 +25,7 @@ const edit = (id, title, url, rating, review) => {
 
 const remove = (id) => {
   return (
-    db('snacks')
+    db('reviews')
       .del()
       .where({ id: id })
       .returning('*')
@@ -37,4 +36,4 @@ const remove = (id) => {
   )
 }
 
-module.exports = { get, getAll, create, edit, remove }
+module.exports = { getOne, getAll, create, edit, remove }
