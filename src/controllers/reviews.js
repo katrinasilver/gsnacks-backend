@@ -1,7 +1,7 @@
 const model = require('../models/reviews')
 
 const readOne = (req, res, next) => {
-  model.getOne(req.params.id)
+  model.getOne(req.params.id, req.params.rid)
     .then(data => {
       if (data) return res.status(200).send(data)
       else throw next()
