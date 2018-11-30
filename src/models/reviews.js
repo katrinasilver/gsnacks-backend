@@ -12,21 +12,21 @@ const create = (title, rating, comment, account_id, snack_id) => {
   )
 }
 
-const edit = (title, rating, comment, account_id, snack_id) => {
+const edit = (title, rating, comment) => {
   return (
     db('reviews')
-      .update({ title, rating, comment, account_id, snack_id })
+      .update({ title, rating, comment })
       .where({ id: id })
       .returning('*')
       .then(([data]) => data)
   )
 }
 
-const remove = (id) => {
+const remove = (account_id, id) => {
   return (
     db('reviews')
       .del()
-      .where({ id: id })
+      .where({ account_id, id })
       .returning('*')
       .then(([data]) => {
         delete data.id

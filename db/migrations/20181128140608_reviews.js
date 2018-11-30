@@ -14,8 +14,7 @@ exports.up = knex => {
   }).then(t => {
     return knex.schema.raw(
       `ALTER TABLE "${TABLE_NAME}"
-       ADD CONSTRAINT "${TABLE_NAME}_unique" UNIQUE(account_id, snack_id)
-      `
+       ADD CONSTRAINT "${TABLE_NAME}_unique" UNIQUE(account_id, snack_id)`
     )
   })
 }

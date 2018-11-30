@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 app.use('/snacks', require('./routes/snacks'))
 app.use('/snacks/:id', require('./routes/reviews'))
 app.use('/account/', require('./routes/auth'))
-app.use('/', require('./routes/users'))
+app.use('/users', require('./routes/users'))
 
 
 app.use((req, res, next) => next({ status: 404, message: { error: 'not found' } }))
