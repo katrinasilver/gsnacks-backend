@@ -21,14 +21,14 @@ const create = (req, res, next) => {
     return next({ status: 400, message: `new entries must have all fields` })
 
   model.create(req.body.title, req.body.rating, req.body.comment, req.params.userid, req.params.id)
-    .then(data => res.status(201).send(data).catch(next))
+    .then(data => res.status(201).send(data).catch(next()))
 }
 
 const edit = (req, res, next) => {
   if (!req.body) return next({ status: 400, message: `edit failed. request is empty` })
 
   model.edit(req.body.title, req.body.rating, req.body.comment)
-    .then(data => res.status(200).send(data)).catch(next)
+    .then(data => res.status(200).send(data)).catch(next())
 }
 
 const remove = (req, res, next) => {
