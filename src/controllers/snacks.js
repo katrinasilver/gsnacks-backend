@@ -17,6 +17,8 @@ const readAll = (req, res, next) => {
     }).catch(next)
 }
 
+// const readid = (req, res, next) => res.send({ id: req.claim.id })
+
 // const review = (req, res, next) => {
 //   model.getReviews(req.params.rid)
 //     .then(data => {

@@ -2,9 +2,9 @@ const db = require('../../db')
 const bcrypt = require('bcrypt')
 const users = require('./users')
 
-const login = (username, password) => {
+const login = (email, password) => {
   let user
-  return users.getUser(username)
+  return users.getUser(email)
     .then(data => {
       if (!data) throw { status: 400, message: 'Terribad Request!'}
       user = data

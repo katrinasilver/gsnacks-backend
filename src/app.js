@@ -6,12 +6,13 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
+// if (process.env.NODE_ENV !== 'production') require('dotenv').load()
+
+app.use('/', require('./routes/auth'))
+app.use('/', require('./routes/users'))
 
 app.use('/snacks', require('./routes/snacks'))
 app.use('/snacks/:id', require('./routes/reviews'))
-app.use('/account/', require('./routes/auth'))
-app.use('/users', require('./routes/users'))
-
 
 app.use((req, res, next) => next({ status: 404, message: { error: 'not found' } }))
 app.use((err, req, res, next) => {

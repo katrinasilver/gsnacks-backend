@@ -2,10 +2,10 @@ const auth = require('../models/auth')
 const jwt = require('jsonwebtoken')
 
 const login = (req, res, next) => {
-  if (!req.body.username || !req.body.password)
+  if (!req.body.email || !req.body.password)
     return next({ status: 400, message: 'Terribad Request!' })
 
-  auth.login(req.body.username, req.body.password)
+  auth.login(req.body.email, req.body.password)
     .then(user => {
       const token = jwt.sign({ id: user.id }, process.env.SECRET)
       return res.status(200).send({ token })
@@ -35,4 +35,4 @@ const matchid = (req, res, next) => {
   next()
 }
 
-module.exports = { login, status, authenticated, matchid }
+module.exports = { login, status, authenticated, status, matchid }

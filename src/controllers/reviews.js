@@ -11,7 +11,7 @@ const readOne = (req, res, next) => {
 const readAll = (req, res, next) => {
     model.getAll(req.params.id)
     .then(data => {
-      if (data) return res.status(200).send(data)
+      if (data) return res.status(200).send( data )
       else throw next()
     }).catch(next)
 }
@@ -28,7 +28,7 @@ const edit = (req, res, next) => {
   if (!req.body) return next({ status: 400, message: `edit failed. request is empty` })
 
   model.edit(req.body.title, req.body.rating, req.body.comment)
-    .then(data => res.status(200).send(data)).catch(next())
+    .then(data => res.status(200).send( data )).catch(next)
 }
 
 const remove = (req, res, next) => {
