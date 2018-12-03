@@ -12,9 +12,7 @@ const login = (req, res, next) => {
     }).catch(next)
 }
 
-const status = (req, res, next) => {
-  return res.status(200).send({ id: req.claim.id })
-}
+const status = (req, res, next) => res.status(200).send({ id: req.claim.id })
 
 const authenticated = (req, res, next) => {
   if (!req.headers.authorization)
