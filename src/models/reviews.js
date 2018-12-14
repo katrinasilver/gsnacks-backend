@@ -22,11 +22,11 @@ const edit = (title, rating, comment, account_id, snack_id, id) => {
   )
 }
 
-const remove = (account_id, id) => {
+const remove = (account_id, snack_id, id) => {
   return (
     db('reviews')
       .del()
-      .where({ account_id, id })
+      .where({ account_id, snack_id, id })
       .returning('*')
       .then(([data]) => {
         delete data.id

@@ -37,7 +37,8 @@ const edit = (req, res, next) => {
 }
 
 const remove = (req, res, next) => {
-  model.remove(req.params.uid, req.params.rid)
+  const {uid, id, rid} = req.params
+  model.remove(uid, id, rid)
     .then(data => res.status(200).send(data)).catch(next)
 }
 
