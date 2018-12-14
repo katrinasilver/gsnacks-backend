@@ -1,9 +1,10 @@
 const express = require('express')
-const router = express.Router()
-const ctrl = require('../controllers/snacks.js')
+const router = express.Router({ mergeParams: true})
+const ctrl = require('../controllers/snacks')
 const auth = require('../controllers/auth')
 
-router.get('/', auth.authenticated, ctrl.readAll)
-router.get('/:id', auth.authenticated, ctrl.readOne)
+router.get('/', ctrl.readAll)
+router.get('/:id', ctrl.readOne)
+router.use('/:id', require('./reviews'))
 
 module.exports = router

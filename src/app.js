@@ -8,18 +8,18 @@ app.use(cors())
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
 app.use('/', require('./routes/auth'))
-app.use('/', require('./routes/users'))
+app.use('/users', require('./routes/users'))
 
-app.use('/snacks', require('./routes/snacks'))
+app.use('/snacks', require('./routes/snacks')) // read one and all
 app.use('/snacks/:id', require('./routes/reviews'))
 
-app.use((req, res, next) => next({ status: 404, message: { error: 'not found' } }))
+app.use((req, res, next) => next({ status: 404, message: 'not found~!' }))
 app.use((err, req, res, next) => {
-  console.error(err)
   const error = {}
   if (process.env.NODE_ENV !== 'production' && err.stack) error.stack = err.stack
   error.status = err.status || 500
   error.message = err.message || `Internal Server Error`
+  console.error(error.message)
   res.status(error.status).json(error)
 })
 

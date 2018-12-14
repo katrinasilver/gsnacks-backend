@@ -3,9 +3,11 @@ const router = express.Router({ mergeParams: true})
 const ctrl = require('../controllers/reviews')
 const auth = require('../controllers/auth')
 
-router.get('/reviews', auth.authenticated, ctrl.readAll)
-router.post('/user/:userid/review', auth.authenticated, auth.matchid, ctrl.create)
-router.patch('/user/:userid/review/:rid', auth.authenticated, auth.matchid, ctrl.edit)
-router.delete('/user/:userid/review/:rid', auth.authenticated, auth.matchid, ctrl.remove)
+router.get('/reviews', ctrl.readAll)
+
+// user routes
+router.post('/reviews', auth.authenticated, auth.matchid, ctrl.create)
+router.patch('/reviews/:rid', auth.authenticated, auth.matchid, ctrl.edit)
+router.delete('/reviews/:rid', auth.authenticated, auth.matchid, ctrl.remove)
 
 module.exports = router
