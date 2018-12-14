@@ -12,11 +12,11 @@ const create = (title, rating, comment, account_id, snack_id) => {
   )
 }
 
-const edit = (title, rating, comment, account_id, id) => {
+const edit = (title, rating, comment, account_id, snack_id, id) => {
   return (
     db('reviews')
       .update({ title, rating, comment })
-      .where({ account_id, id })
+      .where({ account_id, snack_id, id })
       .returning('*')
       .then(([data]) => data)
   )
