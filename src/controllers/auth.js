@@ -28,7 +28,7 @@ const authenticated = (req, res, next) => {
 }
 
 const matchid = (req, res, next) => {
-  if (parseInt(req.params.userid) !== req.claim.id)
+  if (parseInt(req.params.uid) !== req.claim.id)
     return next({ status: 401, message: 'Unauthorized! Exterminate!' })
   next()
 }
