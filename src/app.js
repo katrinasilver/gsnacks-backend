@@ -13,7 +13,7 @@ app.use('/users', require('./routes/users'))
 app.use('/snacks', require('./routes/snacks')) // read one and all
 app.use('/snacks/:id', require('./routes/reviews'))
 
-app.use((req, res, next) => next({ status: 404, message: 'not found~!' }))
+app.use((req, res, next) => next({ status: 404, message: `Not found` }))
 app.use((err, req, res, next) => {
   const error = {}
   if (process.env.NODE_ENV !== 'production' && err.stack) error.stack = err.stack
