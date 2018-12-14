@@ -27,9 +27,12 @@ const create = (req, res, next) => {
 }
 
 const edit = (req, res, next) => {
-  if (!req.body.title || !req.body.rating || !req.body.comment) return next({ status: 400, message: `edit failed. request is empty` })
+  const {title, rating, comment} = req.body
+  const {uid, id, rid} = req.params
+  if (!req.body.title || !req.body.rating || !req.body.comment)
+    return next({ status: 400, message: `edit failed. request is empty` })
 
-  model.edit(req.body.title, req.body.rating, req.body.comment, req.params.uid, req.params.id)
+  model.edit(title, rating, comment, uid, id, rid)
     .then(data => res.status(200).send(data)).catch(next)
 }
 
