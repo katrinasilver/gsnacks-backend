@@ -1,6 +1,7 @@
 const db = require('../../db')
 const bcrypt = require('bcrypt')
 
+// For Authentication
 const getUser = (email) => db('accounts').where({ email }).first()
 
 const create = (email, password, firstName, lastName) => {
@@ -16,4 +17,7 @@ const create = (email, password, firstName, lastName) => {
   })
 }
 
-module.exports = { create, getUser }
+// For Account Greeting
+const getOne = (uid) => db('accounts').where({ id: uid })
+
+module.exports = { create, getUser, getOne }

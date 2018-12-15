@@ -10,4 +10,10 @@ const create = (req, res, next) => {
     .catch(next)
 }
 
-module.exports = { create }
+const getOne = (req, res, next) => {
+  user.getOne(req.params.uid)
+    .then(data => res.status(400).send({ data }))
+    .catch(next)
+}
+
+module.exports = { create, getOne }
