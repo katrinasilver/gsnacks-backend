@@ -1,7 +1,7 @@
 {
   "name": "gsnacks_backend",
   "version": "1.0.0",
-  "description": "API and database migration layer for GSnacks",
+  "description": "API and database migration layer for gSnacks",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/app.js",

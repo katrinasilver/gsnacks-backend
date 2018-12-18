@@ -1,6 +1,6 @@
-# ComicScore Backend
+# gSnacks Backend
 
-Backend API and database migration layer for GSnacks
+Backend API and database migration layer for gSnacks
 
 # How to use
 
@@ -10,5 +10,6 @@ Backend API and database migration layer for GSnacks
 
 # Features
 
-- Knex database migration
+- Knex database seed and migration layer
 - REST API routes built with Express.js
+- See `packages.json` file for other dependencies used
