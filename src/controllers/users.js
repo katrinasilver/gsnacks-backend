@@ -12,7 +12,7 @@ const create = (req, res, next) => {
 
 const getOne = (req, res, next) => {
   user.getOne(req.params.uid)
-    .then(data => res.status(400).send({ data }))
+    .then(data => res.send(data))
     .catch(next)
 }
 

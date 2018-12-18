@@ -5,7 +5,7 @@ exports.seed = knex => {
     {
       id: 1,
       name: 'Corn Dog',
-      description: 'Epic adventures that you can\'t imagine >.>. You gotta read it to believe it!',
+      description: 'Leberkas jowl prosciutto pork loin. Pig meatloaf porchetta cow strip steak shoulder ground round short loin tail spare ribs sausage doner pancetta. Salami leberkas pork, pancetta shoulder beef ribs brisket boudin filet mignon. Corned beef shank jowl t-bone, strip steak cow short loin pork chop biltong meatloaf short ribs turducken.',
       img: 'http://www.foodnfocus.com/wp-content/uploads/2013/08/IMG_6890.jpg',
       price: 3.00,
       isPerishable: true
@@ -20,7 +20,7 @@ exports.seed = knex => {
     },
     {
       id: 3,
-      name: 'Mozzarella Stick',
+      name: 'Mozzarella Sticks',
       description: 'Spare ribs strip steak turkey meatball doner, pork belly shankle pastrami sausage porchetta pancetta bacon turducken. Drumstick salami rump, tongue venison capicola short loin buffalo beef ribs. Jerky ball tip kielbasa biltong tenderloin kevin flank porchetta chuck fatback pork sirloin beef ribs bacon. Alcatra capicola filet mignon tongue cow. Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!',
       img: 'https://tarasmulticulturaltable.com/wp-content/uploads/2018/01/Baked-Mozzarella-Sticks-2-of-5-1024x681.jpg',
       price: 4.00,
@@ -60,7 +60,7 @@ exports.seed = knex => {
     },
     {
       id: 8,
-      name: 'Onion Rings served with Ketchup',
+      name: 'Onion Rings with Ketchup',
       description: 'Spicy jalapeno bacon ipsum dolor amet capicola picanha filet mignon t-bone meatloaf. Flank turducken pork chop, jowl pork belly bacon beef shoulder t-bone sausage tail chicken meatloaf short loin. Sausage shoulder pork, kielbasa swine spare ribs turducken short ribs porchetta andouille pork belly drumstick hamburger ribeye. Porchetta short loin short ribs, prosciutto doner jowl bresaola shank turducken venison tail kevin ball tip buffalo cupim. Jerky porchetta sausage andouille, turkey fatback shankle. Ham hock drumstick pork belly, meatball short ribs beef ribs ground round bacon andouille porchetta pig.',
       img: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Flickr_pancakejess_677476794--Onion_rings.jpg',
       price: 5.00,

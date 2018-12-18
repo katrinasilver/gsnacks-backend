@@ -22,6 +22,8 @@ const edit = (title, rating, comment, account_id, snack_id, id) => {
   )
 }
 
+const readOneReview = (account_id, snack_id, id) => db('reviews').where({ account_id, snack_id, id }).first()
+
 const remove = (account_id, snack_id, id) => {
   return (
     db('reviews')
@@ -35,4 +37,4 @@ const remove = (account_id, snack_id, id) => {
   )
 }
 
-module.exports = { getOne, getAll, create, edit, remove }
+module.exports = { getOne, getAll, create, edit, readOneReview, remove }

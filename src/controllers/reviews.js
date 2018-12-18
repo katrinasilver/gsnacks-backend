@@ -36,10 +36,19 @@ const edit = (req, res, next) => {
     .then(data => res.status(200).send(data)).catch(next)
 }
 
+const readOneReview = (req, res, next) => {
+  const { uid, id, rid } = req.params
+  model.readOneReview(uid, id, rid)
+    .then(data => {
+      if (data) return res.status(200).send(data)
+      else throw next()
+    }).catch(next)
+}
+
 const remove = (req, res, next) => {
   const {uid, id, rid} = req.params
   model.remove(uid, id, rid)
     .then(data => res.status(200).send(data)).catch(next)
 }
 
-module.exports = { readOne, readAll, create, edit, remove }
+module.exports = { readOne, readAll, create, edit, readOneReview, remove }

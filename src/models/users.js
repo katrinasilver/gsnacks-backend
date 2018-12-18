@@ -18,6 +18,6 @@ const create = (email, password, firstName, lastName) => {
 }
 
 // For Account Greeting
-const getOne = (uid) => db('accounts').where({ id: uid })
+const getOne = (uid) => db('accounts').where({ id: uid }).returning('*')
 
 module.exports = { create, getUser, getOne }

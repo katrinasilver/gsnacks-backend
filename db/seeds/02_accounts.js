@@ -6,7 +6,7 @@ exports.seed = knex => {
       id: 1,
       firstName: 'Katrina',
       lastName: 'Agustin',
-      email: 'tasty@me.com',
+      email: 'test@me.com',
       password: '$2b$10$3OaRYsjX4tvuBBP9MzVbxeeS7w1CCRXFLxVnURS/KyLxZNJhew/US'
     }
   ])

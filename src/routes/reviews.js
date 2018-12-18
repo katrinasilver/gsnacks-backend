@@ -4,6 +4,7 @@ const ctrl = require('../controllers/reviews')
 const auth = require('../controllers/auth')
 
 router.get('/reviews', ctrl.readAll)
+router.get('/reviews/:rid', ctrl.readOneReview)
 
 // user routes
 router.post('/reviews', auth.authenticated, auth.matchid, ctrl.create)
