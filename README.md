@@ -12,4 +12,4 @@ Backend API and database migration layer for gSnacks
 
 - Knex database seed and migration layer
 - REST API routes built with Express.js
-- See `packages.json` file for other dependencies used
+- See `package.json` file for other dependencies used
